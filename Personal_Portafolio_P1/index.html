@@ -17,7 +17,7 @@
             <div class="row mb-4">
                 <div class="col d-flex">
                     <img src="/Personal_Portafolio_P1/resources/Mbappe.webp" class="rounded" style="width: 300px; height: 250px;" alt="kylian-mbappe">
-                    <p class="ms-3" style="text-align: justify">My name is Jeremi Gonzalez and I'm a 23 years old from Panama looking to become a Full-Stack developer. Excited to learn and apply all my knowledge in personal projects that I will be storing in my repositories in GitHub</p>
+                    <p class="ms-3" style="text-align: justify">My name is Jeremi Gonzalez and I'm a 23 years old from Panama looking to become a Full-Stack developer. Excited to learn and apply all my knowledge in personal projects that I will be storing in my repositories in GitHub. To the left there is a picture of my favorite football player: Kyllian Mbappe</p>
                 </div>
                 <div class="col text-center">
                     <h3>Tecnologies that I will be implementing on my projects</h3>
@@ -30,13 +30,20 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
-                <p>This is my favorite song:</p>
-                <div class="d-flex">
-                    <audio src="/Personal_Portafolio_P1/resources/Eagles - Hotel California.mp3" id="theSong"></audio>
-                    <button class="btn-grad" type="button" id="playButton">Play it!</button>
-                    <button class="btn-grad" type="button" id="rewindButton">Rewind!</button>
-                </div>    
+            <div class="container-fluid row">
+                <div class="col-2">
+                    <p>This is my favorite song:</p>
+                    <div class="d-flex">
+                        <audio src="/Personal_Portafolio_P1/resources/Eagles - Hotel California.mp3" id="theSong"></audio>
+                        <button class="button-33 me-3" type="button" id="playButton">Play it!</button>
+                        <button class="button-33" type="button" id="rewindButton">Rewind!</button>
+                    </div> 
+                </div>  
+                <div class="col-3 text-center d-flex-column">
+                    <p>Get a random fun fact</p>
+                    <button class="button-33 mb-2" type="button" id="generatorButton">Generate</button>
+                    <p id="theFact">Bananas are berries, but strawberries are not.</p>
+                </div>   
             </div>
         </div>
         <script src="script.js"></script>
