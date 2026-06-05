@@ -1,1 +1,1 @@
-# Practice
+# Practice and Beginner Projects
