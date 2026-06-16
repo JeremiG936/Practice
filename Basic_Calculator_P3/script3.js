@@ -149,6 +149,9 @@ function getResult() {
                 count *= step
             }
             else if (opsSet[i - 1] === "÷") {
+                if (step === 0) {
+                    return "Division by zero"
+                }
                 count /= step
             }
     }
