@@ -13,6 +13,8 @@ const btnSum = document.getElementById("btn-sum");
 const btnMin = document.getElementById("btn-min");
 const btnMult = document.getElementById("btn-mult");
 const btnDiv = document.getElementById("btn-div");
+const btnClear = document.getElementById("btn-clear");
+const btnDel = document.getElementById("btn-del");
 const btnEqual = document.getElementById("btn-equal");
 const displayer = document.getElementById("displayer");
 let displayItems = "";
@@ -22,6 +24,18 @@ let opsSet = [];
 function renderedDisplayer() {
     displayer.innerText = displayItems
 }
+
+btnClear.addEventListener("click", () => {
+    displayItems = "";
+    numSet = [];
+    opsSet = [];
+    renderedDisplayer()
+})
+
+btnDel.addEventListener("click", () => {
+    displayItems = displayItems.slice(0, -1);
+    renderedDisplayer()
+})
 
 btn1.addEventListener("click", () => {
     displayItems = displayItems.concat("1");
@@ -78,6 +92,9 @@ btnDec.addEventListener("click", () => {
 })
 
 btnSum.addEventListener("click", () => {
+    if (displayItems === "") {
+        return
+    }
     numSet.push(displayItems);
     opsSet.push("+")
     displayItems = "";
@@ -85,6 +102,9 @@ btnSum.addEventListener("click", () => {
 })
 
 btnMin.addEventListener("click", () => {
+    if (displayItems === "") {
+        return
+    }
     numSet.push(displayItems);
     opsSet.push("-")
     displayItems = "";
@@ -92,6 +112,9 @@ btnMin.addEventListener("click", () => {
 })
 
 btnMult.addEventListener("click", () => {
+    if (displayItems === "") {
+        return
+    }
     numSet.push(displayItems);
     opsSet.push("x")
     displayItems = "";
@@ -99,6 +122,9 @@ btnMult.addEventListener("click", () => {
 })
 
 btnDiv.addEventListener("click", () => {
+    if (displayItems === "") {
+        return
+    }
     numSet.push(displayItems);
     opsSet.push("÷")
     displayItems = "";
