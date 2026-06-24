@@ -2,6 +2,7 @@ const searchBtn = document.getElementById("search-btn");
 const searchBar = document.getElementById("search-bar");
 const apiCall = "https://rickandmortyapi.com/api/character/";
 let count = 1;
+let favorites = [];
 
 function getRandomIds() {
     let ids = []
@@ -25,7 +26,7 @@ function cardTemplate(character) {
                         <li><strong>Status:</strong>  ${character.status}</li>
                         <li><strong>Type:</strong>  ${character.type}</li>
                     </ul>
-                    <button class="btn btn-primary d-flex ms-auto mt-auto">Add to favorites</button>
+                    <button class="btn btn-primary d-flex ms-auto mt-auto" onclick="pushId(${character.id})">Add to favorites</button>
                 </div>
             </div>`    
 }
@@ -82,6 +83,20 @@ async function renderdCards() {
     cardsHolder.innerHTML = htmlContent
 }
 
+async function renderFavoriteCards() {
+    let promises = [];
+    for (let id of favorites) {
+        promises.push(fetchCharacterData(id))    
+    }
+    let results =  await Promise.allSettled(promises)
+    let cardsHolder = document.getElementById("cards-holder");
+    let htmlContent = '';
+    for (result of results) {
+        htmlContent += cardTemplate(result.value)
+    }
+    cardsHolder.innerHTML = htmlContent
+}
+
 async function renderFilteredCards(typedValue) {
     let fetchedData = await fetchCharacterData(typedValue, count);
     let resultInfo = document.getElementById("result-info");
@@ -125,6 +140,12 @@ searchBtn.addEventListener("click", () => {
     renderFilteredCards(result)
 })
 
+function pushId(id) {
+    if (!favorites.includes(id)) {
+        favorites.push(id)
+    }
+    return;
+}
 
 function main() {
     renderdCards()
